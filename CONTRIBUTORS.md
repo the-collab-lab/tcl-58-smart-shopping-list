@@ -5,6 +5,7 @@ Add yourself as a contributor to this project as a Markdown link that links your
     - [Dione Developer](https://github.com/DioneDeveloper) 💅
 
 ## Cohort Participants
+    - [Alessandra Maffei](https://github.com/a-maffei) 🍕
 
 ## Mentors
 
