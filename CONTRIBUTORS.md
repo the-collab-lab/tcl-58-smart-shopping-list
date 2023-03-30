@@ -8,6 +8,7 @@ Add yourself as a contributor to this project as a Markdown link that links your
 
     - [Alessandra Maffei](https://github.com/a-maffei) 🍕
     - [Peace Sandy](https://github.com/Peacesandy) 💅
+    - [Khadija Gwarzo](https://github.com/naura1835) 😄
 
 ## Mentors
 
