@@ -1,3 +1,4 @@
+import { Fragment } from 'react';
 import { ListItem } from '../components';
 
 export function List({ data }) {
@@ -7,11 +8,11 @@ export function List({ data }) {
 				Hello from the <code>/list</code> page!
 			</p>
 			<ul>
-				{/**
-				 * TODO: write some JavaScript that renders the `data` array
-				 * using the `ListItem` component that's imported at the top
-				 * of this file.
-				 */}
+				{data.map((item) => (
+					<Fragment key={item.id}>
+						<ListItem name={item.name} />
+					</Fragment>
+				))}
 			</ul>
 		</>
 	);
