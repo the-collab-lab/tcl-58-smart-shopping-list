@@ -1,4 +1,3 @@
-import { Fragment } from 'react';
 import { ListItem } from '../components';
 
 export function List({ data }) {
@@ -9,9 +8,7 @@ export function List({ data }) {
 			</p>
 			<ul>
 				{data.map((item) => (
-					<Fragment key={item.id}>
-						<ListItem name={item.name} />
-					</Fragment>
+					<ListItem key={item.id} name={item.name} />
 				))}
 			</ul>
 		</>
