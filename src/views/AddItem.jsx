@@ -1,12 +1,26 @@
+import { useState } from 'react';
 import './AddItem.css';
 
 export function AddItem() {
+	// const [itemName, setItemName] = useState('');
+	// const [itemPurchase, setItemPurchase] = useState(0);
+
+	const handleSubmit = (e) => {
+		e.preventDefault();
+		// setFormData(e.target.value);
+	};
 	return (
-		<form className="add-item-form">
+		<form
+			className="add-item-form"
+			method="post"
+			onSubmit={() => {
+				console.log('form submitted');
+			}}
+		>
 			<label htmlFor="item-name">Item name:</label>
-			<input type="text" id="item-name" />
+			<input type="text" name="item-name" id="item-name" />
 			<span>How soon will you buy this again</span>
-			<radiogroup>
+			<section>
 				<div>
 					<input
 						type="radio"
@@ -34,7 +48,8 @@ export function AddItem() {
 					></input>
 					<label htmlFor="not-soon">Not Soon</label>
 				</div>
-			</radiogroup>
+			</section>
+			<button>Add Item</button>
 		</form>
 	);
 }
