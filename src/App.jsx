@@ -25,7 +25,6 @@ export function App() {
 
 	useEffect(() => {
 		if (!listToken) return;
-		console.log('list token', listToken);
 		/**
 		 * streamListItems` takes a `listToken` so it can commuinicate
 		 * with our database, then calls a callback function with
@@ -51,7 +50,10 @@ export function App() {
 		<Router>
 			<Routes>
 				<Route path="/" element={<Layout />}>
-					<Route index element={<Home setListToken={setListToken} />} />
+					<Route
+						index
+						element={<Home setListToken={setListToken} listToken={listToken} />}
+					/>
 					<Route path="/list" element={<List data={data} />} />
 					<Route path="/add-item" element={<AddItem />} />
 				</Route>
