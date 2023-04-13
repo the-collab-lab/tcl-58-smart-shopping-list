@@ -5,7 +5,6 @@ import { Navigate } from 'react-router-dom';
 export function Home({ setListToken, listToken }) {
 	const handleCreateList = () => {
 		const newToken = generateToken();
-		console.log(newToken);
 		setListToken(newToken);
 	};
 
