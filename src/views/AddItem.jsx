@@ -1,21 +1,25 @@
 import { useState } from 'react';
 import { addItem } from '../api';
+import { useStateWithStorage } from '../utils';
 
 import './AddItem.css';
 
 export function AddItem() {
 	const [itemToAdd, setItemToAdd] = useState({});
+	const [listToken, setListToken] = useStateWithStorage(
+		'my test list',
+		'tcl-shopping-list-token',
+	);
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		try {
-			const docRef = await addItem('po2', {
+			const docRef = await addItem(listToken, {
 				itemName: itemToAdd.itemName,
 				daysUntilNextPurchase: itemToAdd.buyingFrequency,
 			});
 
 			docRef && alert(`${itemToAdd.itemName} was saved to the database`);
-			console.log(docRef);
 		} catch (err) {
 			console.log(err);
 			err && alert('item not saved, pls try again');
