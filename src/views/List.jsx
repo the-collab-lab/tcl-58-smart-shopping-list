@@ -1,6 +1,11 @@
 import { ListItem } from '../components';
+import { Navigate } from 'react-router-dom';
 
-export function List({ data }) {
+export function List({ data, listToken }) {
+	if (!listToken) {
+		return <Navigate to="/" />;
+	}
+
 	return (
 		<>
 			<p>

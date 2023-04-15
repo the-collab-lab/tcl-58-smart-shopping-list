@@ -19,13 +19,12 @@ export function App() {
 	 * to create and join a new list.
 	 */
 	const [listToken, setListToken] = useStateWithStorage(
-		'my test list',
+		null,
 		'tcl-shopping-list-token',
 	);
 
 	useEffect(() => {
 		if (!listToken) return;
-
 		/**
 		 * streamListItems` takes a `listToken` so it can commuinicate
 		 * with our database, then calls a callback function with
@@ -51,8 +50,14 @@ export function App() {
 		<Router>
 			<Routes>
 				<Route path="/" element={<Layout />}>
-					<Route index element={<Home />} />
-					<Route path="/list" element={<List data={data} />} />
+					<Route
+						index
+						element={<Home setListToken={setListToken} listToken={listToken} />}
+					/>
+					<Route
+						path="/list"
+						element={<List data={data} listToken={listToken} />}
+					/>
 					<Route path="/add-item" element={<AddItem listId={listToken} />} />
 				</Route>
 			</Routes>
