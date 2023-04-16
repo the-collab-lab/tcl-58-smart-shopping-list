@@ -10,7 +10,7 @@ import './Layout.css';
  * defined in `App.jsx`.
  */
 
-export function Layout() {
+export function Layout({ listToken }) {
 	return (
 		<>
 			<div className="Layout">
@@ -20,17 +20,19 @@ export function Layout() {
 				<main className="Layout-main">
 					<Outlet />
 				</main>
-				<nav className="Nav">
-					<NavLink to={'/'} className="Nav-link">
-						Home
-					</NavLink>
-					<NavLink to={'/list'} className="Nav-link">
-						List
-					</NavLink>
-					<NavLink to={'/add-item'} className="Nav-link">
-						Add Item
-					</NavLink>
-				</nav>
+				{listToken && (
+					<nav className="Nav">
+						<NavLink to={'/'} className="Nav-link">
+							Home
+						</NavLink>
+						<NavLink to={'/list'} className="Nav-link">
+							List
+						</NavLink>
+						<NavLink to={'/add-item'} className="Nav-link">
+							Add Item
+						</NavLink>
+					</nav>
+				)}
 			</div>
 		</>
 	);
