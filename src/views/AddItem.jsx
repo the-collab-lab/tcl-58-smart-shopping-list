@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { addItem } from '../api';
+import { Navigate } from 'react-router-dom';
 
 import './AddItem.css';
 
@@ -9,6 +10,10 @@ export function AddItem({ listId }) {
 		buyingFrequency: 7,
 	});
 	const [message, setMessage] = useState('');
+
+	if (!listId) {
+		return <Navigate to="/" />;
+	}
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
@@ -60,7 +65,7 @@ export function AddItem({ listId }) {
 							id="soon"
 							onChange={handleChange}
 							// defaultChecked
-							checked={itemToAdd.buyingFrequency == 7}
+							checked={itemToAdd.buyingFrequency === 7}
 						/>
 						<label htmlFor="soon">Soon</label>
 					</div>
@@ -71,7 +76,7 @@ export function AddItem({ listId }) {
 							name="buyingFrequency"
 							id="kind-of-soon"
 							onChange={handleChange}
-							checked={itemToAdd.buyingFrequency == 14}
+							checked={itemToAdd.buyingFrequency === 14}
 						/>
 						<label htmlFor="kind-of-soon">Kind Of Soon</label>
 					</div>
@@ -82,7 +87,7 @@ export function AddItem({ listId }) {
 							name="buyingFrequency"
 							id="not-soon"
 							onChange={handleChange}
-							checked={itemToAdd.buyingFrequency == 30}
+							checked={itemToAdd.buyingFrequency === 30}
 						/>
 						<label htmlFor="not-soon">Not Soon</label>
 					</div>
