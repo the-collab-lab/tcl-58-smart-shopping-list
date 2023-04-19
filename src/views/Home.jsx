@@ -19,7 +19,6 @@ export function Home({ setListToken, listToken }) {
 
 	const submitShareToken = (e) => {
 		e.preventDefault();
-		console.log(tokenInput);
 
 		if (tokenInput.length === 0) {
 			setErrorMessage('Please enter a token');
@@ -40,7 +39,6 @@ export function Home({ setListToken, listToken }) {
 					setErrorMessage('');
 				}, 3000);
 			}
-			console.log(nextData);
 		});
 	};
 
