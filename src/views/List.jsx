@@ -4,20 +4,15 @@ import { useState, useEffect } from 'react';
 
 export function List({ data, listToken }) {
 	const [searchValue, setSearchValue] = useState('');
-	const [items, setItems] = useState([]);
 	const [filteredItems, setFilteredItems] = useState([]);
 
 	useEffect(() => {
-		setItems(data);
-	}, [data]);
-
-	useEffect(() => {
-		const filteredItems = items.filter((item) =>
+		const newFilteredItems = data.filter((item) =>
 			item.name.toLowerCase().includes(searchValue),
 		);
 
-		setFilteredItems(filteredItems);
-	}, [items, searchValue]);
+		setFilteredItems(newFilteredItems);
+	}, [data, searchValue]);
 
 	function handleChange(event) {
 		setSearchValue(event.target.value.toLowerCase());
