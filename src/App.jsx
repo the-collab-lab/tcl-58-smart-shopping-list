@@ -50,7 +50,6 @@ export function App() {
 		<Router>
 			<Routes>
 				<Route path="/" element={<Layout listToken={listToken} />}>
-					{' '}
 					<Route
 						index
 						element={<Home setListToken={setListToken} listToken={listToken} />}
