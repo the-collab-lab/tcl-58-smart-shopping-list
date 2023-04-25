@@ -23,9 +23,9 @@ export function List({ data, listToken }) {
 		return <Navigate to="/" />;
 	}
 
-	// const additemHandler = () => {
+	//  const additemHandler = () => {
 	// 	return < Navigate to = '/add-item' />
-	// }
+	//  }
 
 	return (
 		<>
@@ -42,7 +42,7 @@ export function List({ data, listToken }) {
 				</form>
 			) : (
 				<div>
-					<p>Your shopping list is currently empty.</p>
+					<p>Your shopping list is currently empty!</p>
 					<button>
 						<Link to="/add-item">Add Item</Link>
 					</button>
