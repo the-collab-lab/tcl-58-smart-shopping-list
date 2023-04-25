@@ -1,6 +1,7 @@
 import { ListItem } from '../components';
-import { Navigate } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
+import { addItem } from '../api';
 
 export function List({ data, listToken }) {
 	const [searchValue, setSearchValue] = useState('');
@@ -22,18 +23,31 @@ export function List({ data, listToken }) {
 		return <Navigate to="/" />;
 	}
 
+	// const additemHandler = () => {
+	// 	return < Navigate to = '/add-item' />
+	// }
+
 	return (
 		<>
-			<form>
-				<label htmlFor="search-input"> Filter items </label>
-				<input
-					type="search"
-					placeholder="Start typing here..."
-					name="search-item"
-					id="search-input"
-					onChange={handleChange}
-				/>
-			</form>
+			{data.length > 0 ? (
+				<form>
+					<label htmlFor="search-input"> Filter items </label>
+					<input
+						type="search"
+						placeholder="Start typing here..."
+						name="search-item"
+						id="search-input"
+						onChange={handleChange}
+					/>
+				</form>
+			) : (
+				<div>
+					<p>Your shopping list is currently empty.</p>
+					<button>
+						<Link to="/add-item">Add Item</Link>
+					</button>
+				</div>
+			)}
 			<ul>
 				{filteredItems.map((item) => (
 					<ListItem key={item.id} name={item.name} />
