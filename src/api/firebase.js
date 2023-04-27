@@ -80,7 +80,7 @@ export async function updateItem(listId, documentId, totalPurchases) {
 
 	const updatedDocRef = await updateDoc(itemRef, {
 		dateLastPurchased: serverTimestamp(),
-		totalPurchases,
+		totalPurchases: ++totalPurchases,
 	});
 
 	return updatedDocRef;

@@ -36,14 +36,7 @@ export function List({ data, listToken }) {
 			</form>
 			<ul>
 				{filteredItems.map((item) => (
-					<ListItem
-						key={item.id}
-						name={item.name}
-						id={item.id}
-						totalPurchases={item.totalPurchases}
-						dateLastPurchased={item.dateLastPurchased}
-						listToken={listToken}
-					/>
+					<ListItem key={item.id} item={item} listToken={listToken} />
 				))}
 			</ul>
 		</>
