@@ -41,6 +41,7 @@ export function List({ data, listToken }) {
 						name={item.name}
 						id={item.id}
 						totalPurchases={item.totalPurchases}
+						dateLastPurchased={item.dateLastPurchased}
 						listToken={listToken}
 					/>
 				))}

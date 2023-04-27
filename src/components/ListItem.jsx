@@ -1,7 +1,13 @@
-import './ListItem.css';
 import { updateItem } from '../api/firebase';
+import './ListItem.css';
 
-export function ListItem({ name, id, totalPurchases, listToken }) {
+export function ListItem({
+	name,
+	id,
+	totalPurchases,
+	listToken,
+	dateLastPurchased,
+}) {
 	const handleChange = async (e) => {
 		const { checked } = e.target;
 
@@ -16,9 +22,26 @@ export function ListItem({ name, id, totalPurchases, listToken }) {
 		}
 	};
 
+	const compareDates = () => {
+		if (dateLastPurchased == null) return;
+
+		const date = dateLastPurchased.toMillis();
+		const twentyFourhrs = 24 * 60 * 60 * 1000;
+
+		return Date.now() - date <= twentyFourhrs;
+	};
+
+	console.log(name + ' ' + !!compareDates());
+
 	return (
 		<li className="ListItem">
-			<input type="checkbox" id={id} onChange={handleChange}></input>
+			<input
+				type="checkbox"
+				id={id}
+				onChange={handleChange}
+				// checked={}
+				// disabled={}
+			></input>
 			<label htmlFor={id}>{name}</label>
 		</li>
 	);
