@@ -79,7 +79,7 @@ export async function updateItem(listId, documentId, totalPurchases) {
 	const itemRef = doc(db, listId, documentId);
 
 	const updatedDocRef = await updateDoc(itemRef, {
-		dateLastPurchased: serverTimestamp(),
+		dateLastPurchased: new Date(),
 		totalPurchases: ++totalPurchases,
 	});
 

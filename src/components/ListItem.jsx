@@ -29,7 +29,7 @@ export function ListItem({ item, listToken }) {
 		const hasElapsed = Date.now() - date <= twentyFourHrs;
 
 		setIsChecked(hasElapsed);
-	});
+	}, [dateLastPurchased]);
 
 	return (
 		<li className="ListItem">
@@ -38,6 +38,7 @@ export function ListItem({ item, listToken }) {
 				id={id}
 				onChange={handleChange}
 				checked={isChecked}
+				disabled={isChecked}
 			></input>
 			<label htmlFor={id}>{name}</label>
 		</li>
