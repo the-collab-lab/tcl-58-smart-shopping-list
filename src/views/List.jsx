@@ -1,7 +1,6 @@
 import { ListItem } from '../components';
 import { Link, Navigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import { addItem } from '../api';
 
 export function List({ data, listToken }) {
 	const [searchValue, setSearchValue] = useState('');
@@ -23,13 +22,9 @@ export function List({ data, listToken }) {
 		return <Navigate to="/" />;
 	}
 
-	//  const additemHandler = () => {
-	// 	return < Navigate to = '/add-item' />
-	//  }
-
 	return (
 		<>
-			{data.length > 0 ? (
+			{data?.length > 0 ? (
 				<form>
 					<label htmlFor="search-input"> Filter items </label>
 					<input
