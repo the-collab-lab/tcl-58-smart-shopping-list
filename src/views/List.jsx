@@ -36,7 +36,7 @@ export function List({ data, listToken }) {
 			</form>
 			<ul>
 				{filteredItems.map((item) => (
-					<ListItem key={item.id} name={item.name} />
+					<ListItem key={item.id} item={item} listToken={listToken} />
 				))}
 			</ul>
 		</>
