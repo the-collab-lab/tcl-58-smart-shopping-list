@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { updateItem } from '../api/firebase';
+import { getDaysBetweenDates } from '../utils';
 import './ListItem.css';
 
 export function ListItem({ item, listToken }) {
@@ -19,6 +20,9 @@ export function ListItem({ item, listToken }) {
 			}
 		}
 	};
+	const trial = dateLastPurchased.toDate();
+	console.log(trial.getTime());
+	console.log(getDaysBetweenDates(trial));
 
 	useEffect(() => {
 		if (dateLastPurchased == null) return;
