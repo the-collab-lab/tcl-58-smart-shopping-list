@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { updateItem } from '../api/firebase';
-import { getDaysBetweenDates } from '../utils';
+
 import './ListItem.css';
 
 export function ListItem({ item, listToken }) {
@@ -13,15 +13,18 @@ export function ListItem({ item, listToken }) {
 
 		if (checked) {
 			try {
-				await updateItem(listToken, id, totalPurchases);
+				await updateItem(
+					listToken,
+					id,
+					totalPurchases,
+					dateLastPurchased.toDate(),
+				);
 				console.log('Shopping item successfully updated');
 			} catch (error) {
 				console.log(error);
 			}
 		}
 	};
-	const trial = dateLastPurchased.toDate();
-	console.log(name, getDaysBetweenDates(Date.now(), trial));
 
 	useEffect(() => {
 		if (dateLastPurchased == null) return;
