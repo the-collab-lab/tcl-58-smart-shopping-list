@@ -21,8 +21,7 @@ export function ListItem({ item, listToken }) {
 		}
 	};
 	const trial = dateLastPurchased.toDate();
-	console.log(trial.getTime());
-	console.log(getDaysBetweenDates(trial));
+	console.log(name, getDaysBetweenDates(Date.now(), trial));
 
 	useEffect(() => {
 		if (dateLastPurchased == null) return;
