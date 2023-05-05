@@ -1,12 +1,21 @@
 import { useEffect, useState } from 'react';
 import { updateItem } from '../api/firebase';
+import { getDaysBetweenDates, getFutureDate } from '../utils';
+import { calculateEstimate } from '@the-collab-lab/shopping-list-utils';
 
 import './ListItem.css';
 
 export function ListItem({ item, listToken }) {
 	const [isChecked, setIsChecked] = useState(false);
 
-	const { name, id, totalPurchases, dateLastPurchased } = item;
+	const {
+		name,
+		id,
+		totalPurchases,
+		dateLastPurchased,
+		dateNextPurchased,
+		dateCreated,
+	} = item;
 
 	const handleChange = async (e) => {
 		const { checked } = e.target;
@@ -17,7 +26,9 @@ export function ListItem({ item, listToken }) {
 					listToken,
 					id,
 					totalPurchases,
-					dateLastPurchased.toDate(),
+					dateLastPurchased,
+					dateNextPurchased,
+					dateCreated,
 				);
 				console.log('Shopping item successfully updated');
 			} catch (error) {
