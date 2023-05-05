@@ -1,7 +1,5 @@
 import { useEffect, useState } from 'react';
 import { updateItem } from '../api/firebase';
-import { getDaysBetweenDates, getFutureDate } from '../utils';
-import { calculateEstimate } from '@the-collab-lab/shopping-list-utils';
 
 import './ListItem.css';
 

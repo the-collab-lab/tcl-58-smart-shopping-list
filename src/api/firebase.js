@@ -1,10 +1,4 @@
-import {
-	collection,
-	onSnapshot,
-	doc,
-	updateDoc,
-	serverTimestamp,
-} from 'firebase/firestore';
+import { collection, onSnapshot, doc, updateDoc } from 'firebase/firestore';
 import { addDoc } from 'firebase/firestore';
 import { db } from './config';
 import { getFutureDate, getDaysBetweenDates } from '../utils';
