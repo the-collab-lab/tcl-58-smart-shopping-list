@@ -4,7 +4,7 @@ import { Navigate } from 'react-router-dom';
 
 import './AddItem.css';
 
-export function AddItem({ listId }) {
+export function AddItem({ listId, data }) {
 	const [itemToAdd, setItemToAdd] = useState({
 		itemName: '',
 		buyingFrequency: 7,
@@ -15,8 +15,51 @@ export function AddItem({ listId }) {
 		return <Navigate to="/" />;
 	}
 
+	const isWhiteSpace = (char) => {
+		return ' \t\n'.includes(char);
+	};
+
+	const isPunctuation = (char) => {
+		return ';:.,?!-\'"(){}'.includes(char);
+	};
+
+	const normalize = (string) => {
+		return string
+			.trim()
+			.toLowerCase()
+			.split('')
+			.filter((char) => !isPunctuation(char) && !isWhiteSpace(char))
+			.join('');
+	};
+
 	const handleSubmit = async (e) => {
 		e.preventDefault();
+
+		if (itemToAdd.itemName.length === 0) {
+			setMessage('Please enter an item.');
+
+			setTimeout(() => {
+				setMessage('');
+			}, 5000);
+
+			return;
+		}
+
+		const comparedItems = data.filter(
+			(item) => normalize(item.name) === normalize(itemToAdd.itemName),
+		);
+
+		if (comparedItems.length > 0) {
+			setMessage('This item is already in your list.');
+
+			setItemToAdd({ itemName: '', buyingFrequency: 7 });
+
+			setTimeout(() => {
+				setMessage('');
+			}, 5000);
+
+			return;
+		}
 
 		try {
 			const docRef = await addItem(listId, {
