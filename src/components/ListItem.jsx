@@ -1,18 +1,33 @@
 import { useEffect, useState } from 'react';
 import { updateItem } from '../api/firebase';
+
 import './ListItem.css';
 
 export function ListItem({ item, listToken }) {
 	const [isChecked, setIsChecked] = useState(false);
 
-	const { name, id, totalPurchases, dateLastPurchased } = item;
+	const {
+		name,
+		id,
+		totalPurchases,
+		dateLastPurchased,
+		dateNextPurchased,
+		dateCreated,
+	} = item;
 
 	const handleChange = async (e) => {
 		const { checked } = e.target;
 
 		if (checked) {
 			try {
-				await updateItem(listToken, id, totalPurchases);
+				await updateItem(
+					listToken,
+					id,
+					totalPurchases,
+					dateLastPurchased,
+					dateNextPurchased,
+					dateCreated,
+				);
 				console.log('Shopping item successfully updated');
 			} catch (error) {
 				console.log(error);
