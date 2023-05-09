@@ -115,3 +115,37 @@ export async function deleteItem() {
 	 * this function must accept!
 	 */
 }
+
+export function comparePurchaseUrgency(shoppingList) {
+	// Loop though the shopping list and for each item and calculate days until next purchase and days since last purchase
+	// Store days until next purchase into property item.purchaseUrgency (need it later for sort)
+	// Based number of days we can label item as "soon", "kind of soon", "inactive" etc.
+	// Finish loop
+	// Return sorted array: 1) active first inactive last 2) purchaseUrgency (days until next purchase) ascending 3) alphabetical
+	return shoppingList.forEach((item) => {
+		if (item.dateNextPurchased) {
+			const daysUntilNextPurchase = getDaysBetweenDates(
+				item.dateNextPurchased.toMillis(),
+				Date.now(),
+			);
+			item.purchaseUrgency = daysUntilNextPurchase;
+			if (daysUntilNextPurchase <= 7) {
+				item.urgencyLabel = 'soon';
+			} else if (daysUntilNextPurchase > 7 && daysUntilNextPurchase < 31) {
+				item.urgencyLabel = 'kind of soon';
+			} else {
+				item.urgencyLabel = 'not soon';
+			}
+		}
+
+		if (item.dateLastPurchased) {
+			const daysSinceLastPurchase = getDaysBetweenDates(
+				Date.now(),
+				item.dateLastPurchased.toMillis(),
+			);
+			if (daysSinceLastPurchase > 60) {
+				item.urgencyLabel = 'inactive';
+			}
+		}
+	});
+}

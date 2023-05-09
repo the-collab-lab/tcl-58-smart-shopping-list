@@ -1,6 +1,8 @@
 import { ListItem } from '../components';
 import { Link, Navigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
+import { comparePurchaseUrgency } from '../api/firebase';
+import { getDaysBetweenDates } from '../utils/dates';
 
 export function List({ data, listToken }) {
 	const [searchValue, setSearchValue] = useState('');
@@ -10,6 +12,8 @@ export function List({ data, listToken }) {
 		const newFilteredItems = data.filter((item) =>
 			item.name.toLowerCase().includes(searchValue),
 		);
+
+		comparePurchaseUrgency(newFilteredItems);
 
 		setFilteredItems(newFilteredItems);
 	}, [data, searchValue]);
