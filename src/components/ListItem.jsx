@@ -13,6 +13,7 @@ export function ListItem({ item, listToken }) {
 		dateLastPurchased,
 		dateNextPurchased,
 		dateCreated,
+		urgencyLabel,
 	} = item;
 
 	const handleChange = async (e) => {
@@ -55,7 +56,9 @@ export function ListItem({ item, listToken }) {
 				checked={isChecked}
 				disabled={isChecked}
 			></input>
-			<label htmlFor={id}>{name}</label>
+			<label htmlFor={id}>
+				{urgencyLabel} - {name}
+			</label>
 		</li>
 	);
 }

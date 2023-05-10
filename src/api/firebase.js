@@ -118,13 +118,16 @@ export async function deleteItem() {
 
 export function comparePurchaseUrgency(shoppingList) {
 	// Loop though the shopping list and for each item and calculate days until next purchase and days since last purchase
-	// Store days until next purchase into property item.purchaseUrgency (need it later for sort)
-	// Based number of days we can label item as "soon", "kind of soon", "inactive" etc.
-	// Finish loop
+	// Store days until next purchase into property item.purchaseUrgency (to use later for sort)
+	// Based number of days we can label each item
 	// Return sorted array: 1) active first inactive last 2) purchaseUrgency (days until next purchase) ascending 3) alphabetical
-	return shoppingList.forEach((item) => {
+
+	shoppingList.forEach((item) => {
+		let daysUntilNextPurchase;
+		let daysSinceLastPurchase;
+
 		if (item.dateNextPurchased) {
-			const daysUntilNextPurchase = getDaysBetweenDates(
+			daysUntilNextPurchase = getDaysBetweenDates(
 				item.dateNextPurchased.toMillis(),
 				Date.now(),
 			);
@@ -139,7 +142,7 @@ export function comparePurchaseUrgency(shoppingList) {
 		}
 
 		if (item.dateLastPurchased) {
-			const daysSinceLastPurchase = getDaysBetweenDates(
+			daysSinceLastPurchase = getDaysBetweenDates(
 				Date.now(),
 				item.dateLastPurchased.toMillis(),
 			);
@@ -147,5 +150,29 @@ export function comparePurchaseUrgency(shoppingList) {
 				item.urgencyLabel = 'inactive';
 			}
 		}
+
+		if (item.dateLastPurchased && item.dateNextPurchased) {
+			// consider what happens when an item’s dateNextPurchased has passed, but it isn’t yet inactive.
+
+			if (daysSinceLastPurchase < 60 && daysUntilNextPurchase < 0) {
+				item.urgencyLabel = 'overdue';
+			}
+		}
+	});
+	return shoppingList.sort((a, b) => {
+		//sort by active/inactive first
+		if (a.urgencyLabel === 'inactive' && b.urgencyLabel !== 'inactive') {
+			return 1;
+		}
+		if (a.urgencyLabel !== 'inactive' && b.urgencyLabel === 'inactive') {
+			return -1;
+		}
+		//sort by purchase urgency (days until next purchase) ascending 3) alphabetical
+		if (a.purchaseUrgency !== b.purchaseUrgency) {
+			return a.purchaseUrgency - b.purchaseUrgency;
+		}
+
+		//sort alhpabetically
+		return a.name.localeCompare(b.name);
 	});
 }
