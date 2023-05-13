@@ -1,9 +1,7 @@
 import { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-
 import { AddItem, Home, Layout, List } from './views';
-
-import { getItemData, streamListItems } from './api';
+import { getItemData, streamListItems, comparePurchaseUrgency } from './api';
 import { useStateWithStorage } from './utils';
 
 export function App() {
@@ -40,9 +38,9 @@ export function App() {
 			 * Refer to `api/firebase.js`
 			 */
 			const nextData = getItemData(snapshot);
-
+			const sortedData = comparePurchaseUrgency(nextData);
 			/** Finally, we update our React state. */
-			setData(nextData);
+			setData(sortedData);
 		});
 	}, [listToken]);
 

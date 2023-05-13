@@ -122,7 +122,7 @@ export function comparePurchaseUrgency(shoppingList) {
 	// Based number of days we can label each item
 	// Return sorted array: 1) active first inactive last 2) purchaseUrgency (days until next purchase) ascending 3) alphabetical
 
-	shoppingList.forEach((item) => {
+	shoppingList.map((item) => {
 		let daysUntilNextPurchase;
 		let daysSinceLastPurchase;
 
@@ -158,6 +158,8 @@ export function comparePurchaseUrgency(shoppingList) {
 				item.urgencyLabel = 'overdue';
 			}
 		}
+
+		return item;
 	});
 	return shoppingList.sort((a, b) => {
 		//sort by active/inactive first
