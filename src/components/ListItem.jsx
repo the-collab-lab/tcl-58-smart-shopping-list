@@ -14,6 +14,7 @@ export function ListItem({ item, listToken }) {
 		dateLastPurchased,
 		dateNextPurchased,
 		dateCreated,
+		urgencyLabel,
 	} = item;
 
 	const handleChange = async (e) => {
@@ -76,7 +77,7 @@ export function ListItem({ item, listToken }) {
 					checked={isChecked}
 					disabled={isChecked}
 				></input>
-				<label htmlFor={id}>{name}</label>
+				<label htmlFor={id}>{urgencyLabel} - {name}</label>
 				<button onClick={handleDeleteItem}>Delete</button>
 			</li>
 			{message && <span>{message}</span>}

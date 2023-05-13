@@ -121,3 +121,66 @@ export async function deleteItem(documentId, listToken) {
 
 	return deleteItemRef;
 }
+
+export function comparePurchaseUrgency(shoppingList) {
+	// Loop though the shopping list and for each item and calculate days until next purchase and days since last purchase
+	// Store days until next purchase into property item.purchaseUrgency (to use later for sort)
+	// Based number of days we can label each item
+	// Return sorted array: 1) active first inactive last 2) purchaseUrgency (days until next purchase) ascending 3) alphabetical
+
+	shoppingList.map((item) => {
+		let daysUntilNextPurchase;
+		let daysSinceLastPurchase;
+
+		if (item.dateNextPurchased) {
+			daysUntilNextPurchase = getDaysBetweenDates(
+				item.dateNextPurchased.toMillis(),
+				Date.now(),
+			);
+			item.purchaseUrgency = daysUntilNextPurchase;
+			if (daysUntilNextPurchase <= 7) {
+				item.urgencyLabel = 'soon';
+			} else if (daysUntilNextPurchase > 7 && daysUntilNextPurchase < 31) {
+				item.urgencyLabel = 'kind of soon';
+			} else {
+				item.urgencyLabel = 'not soon';
+			}
+		}
+
+		if (item.dateLastPurchased) {
+			daysSinceLastPurchase = getDaysBetweenDates(
+				Date.now(),
+				item.dateLastPurchased.toMillis(),
+			);
+			if (daysSinceLastPurchase > 60) {
+				item.urgencyLabel = 'inactive';
+			}
+		}
+
+		if (item.dateLastPurchased && item.dateNextPurchased) {
+			// consider what happens when an item’s dateNextPurchased has passed, but it isn’t yet inactive.
+
+			if (daysSinceLastPurchase < 60 && daysUntilNextPurchase < 0) {
+				item.urgencyLabel = 'overdue';
+			}
+		}
+
+		return item;
+	});
+	return shoppingList.sort((a, b) => {
+		//sort by active/inactive first
+		if (a.urgencyLabel === 'inactive' && b.urgencyLabel !== 'inactive') {
+			return 1;
+		}
+		if (a.urgencyLabel !== 'inactive' && b.urgencyLabel === 'inactive') {
+			return -1;
+		}
+		//sort by purchase urgency (days until next purchase) ascending 3) alphabetical
+		if (a.purchaseUrgency !== b.purchaseUrgency) {
+			return a.purchaseUrgency - b.purchaseUrgency;
+		}
+
+		//sort alhpabetically
+		return a.name.localeCompare(b.name);
+	});
+}
