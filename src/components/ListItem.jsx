@@ -1,10 +1,11 @@
 import { useEffect, useState } from 'react';
-import { updateItem } from '../api/firebase';
+import { deleteItem, updateItem } from '../api/firebase';
 
 import './ListItem.css';
 
 export function ListItem({ item, listToken }) {
 	const [isChecked, setIsChecked] = useState(false);
+	const [message, setMessage] = useState('');
 
 	const {
 		name,
@@ -29,9 +30,28 @@ export function ListItem({ item, listToken }) {
 					dateNextPurchased,
 					dateCreated,
 				);
-				console.log('Shopping item successfully updated');
+				setMessage('Shopping item successfully updated');
 			} catch (error) {
-				console.log(error);
+				setMessage('Item has not been marked as purchased');
+			}
+			setTimeout(() => {
+				setMessage('');
+			}, 5000);
+		}
+	};
+
+	const handleDeleteItem = async () => {
+		const confirmDelete = window.confirm(
+			'Are you sure you want to delete the item',
+		);
+		if (confirmDelete) {
+			try {
+				await deleteItem(id, listToken);
+			} catch (error) {
+				setMessage('item has not been deleted');
+				setTimeout(() => {
+					setMessage('');
+				}, 5000);
 			}
 		}
 	};
@@ -48,17 +68,19 @@ export function ListItem({ item, listToken }) {
 	}, [dateLastPurchased]);
 
 	return (
-		<li className="ListItem">
-			<input
-				type="checkbox"
-				id={id}
-				onChange={handleChange}
-				checked={isChecked}
-				disabled={isChecked}
-			></input>
-			<label htmlFor={id}>
-				{urgencyLabel} - {name}
-			</label>
-		</li>
+		<>
+			<li className="ListItem">
+				<input
+					type="checkbox"
+					id={id}
+					onChange={handleChange}
+					checked={isChecked}
+					disabled={isChecked}
+				></input>
+				<label htmlFor={id}>{urgencyLabel} - {name}</label>
+				<button onClick={handleDeleteItem}>Delete</button>
+			</li>
+			{message && <span>{message}</span>}
+		</>
 	);
 }
