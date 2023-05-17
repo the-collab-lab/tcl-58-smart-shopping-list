@@ -1,4 +1,8 @@
+import { useState } from 'react';
 import { NavLink, Outlet } from 'react-router-dom';
+import { ReactComponent as Home } from '../assets/material-symbols_home.svg';
+import { ReactComponent as List } from '../assets/material-symbols_format-list-bulleted-rounded.svg';
+import { ReactComponent as AddItem } from '../assets/material-symbols_add-notes-outline.svg';
 
 import './Layout.css';
 
@@ -11,6 +15,13 @@ import './Layout.css';
  */
 
 export function Layout({ listToken }) {
+	const [isActive, setIsActive] = useState(-1);
+
+	const navListItems = [
+		{ route: '/', label: 'Home', icon: <Home /> },
+		{ route: '/list', label: 'List', icon: <List /> },
+		{ route: '/add-item', label: 'Add Item', icon: <AddItem /> },
+	];
 	return (
 		<>
 			<div className="Layout">
@@ -22,15 +33,20 @@ export function Layout({ listToken }) {
 				</main>
 				{listToken && (
 					<nav className="Nav">
-						<NavLink to={'/'} className="Nav-link">
-							Home
-						</NavLink>
-						<NavLink to={'/list'} className="Nav-link">
-							List
-						</NavLink>
-						<NavLink to={'/add-item'} className="Nav-link">
-							Add Item
-						</NavLink>
+						{navListItems.map(({ route, icon, label }, index) => (
+							<div
+								key={index}
+								onMouseEnter={() => setIsActive(index)}
+								onMouseLeave={() => setIsActive(-1)}
+							>
+								<NavLink to={route} className="Nav-link">
+									{icon}
+								</NavLink>
+								{isActive === index && (
+									<span className="Nav-link__label">{label}</span>
+								)}
+							</div>
+						))}
 					</nav>
 				)}
 			</div>

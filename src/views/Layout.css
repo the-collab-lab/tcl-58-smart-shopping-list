@@ -36,27 +36,52 @@
 
 .Nav {
 	align-items: stretch;
-	background-color: var(--color-bg);
-	bottom: 0;
+	background-color: var(--color-sandy-brown);
+	border-radius: 30px;
+	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+	bottom: 20px;
 	display: flex;
 	flex-direction: row;
 	justify-content: space-around;
+	margin: 0 auto;
 	margin-top: auto;
+	max-width: 350px;
+	padding: 1.06em 2.25em;
 	position: sticky;
+	width: 100%;
+
+	@media (min-width: 900px) {
+		max-width: 400px;
+	}
 }
 
 .Nav-link {
-	--color-text: var(--color-accent);
+	--color-text: var(--color-black);
 
 	color: var(--color-text);
-	font-size: 1.45em;
-	flex: 0 1 auto;
-	padding: 0.8rem;
-	text-align: center;
-	text-underline-offset: 0.1em;
+	position: relative;
 }
 
-.Nav-link.active {
-	text-decoration-thickness: 0.22em;
-	text-underline-offset: 0.1em;
+svg path {
+	transition: fill 0.2s ease-in-out;
+}
+
+.Nav-link.active svg path {
+	fill: var(--color-beige);
+}
+
+.Nav-link__label {
+	bottom: -12px;
+	color: var(--color-gray-dark);
+	font-size: 15px;
+	font-weight: 600;
+	left: 50%;
+	position: absolute;
+	text-transform: capitalize;
+	transform: translateX(-50%);
+	width: max-content;
+}
+
+.Nav-link.active + .Nav-link__label {
+	color: var(--color-beige);
 }
