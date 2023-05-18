@@ -44,23 +44,38 @@ export function Home({ setListToken, listToken }) {
 
 	return (
 		<div className="Home">
-			<p>
-				Hello from the home (<code>/</code>) page!
-			</p>
-			<button onClick={handleCreateList}>Create a new list</button>
+			<div className="about-text">
+				<p className="first-text">Lorem ipsum dolor sit amet</p>
+				<p className="second-text">
+					Lorem ipsum dolor sit amet consectetur, adipisicing elit sit amet .
+				</p>
+				<p className="third-text">Lorem ipsum.</p>
+			</div>
+
 			<form onSubmit={submitShareToken}>
-				<p>- or -</p>
-				<p>Join an existing shopping list by entering a three word token.</p>
-				<label htmlFor="shared-token">Share token</label>
+				<p className="text-joinanexistingshoppinglist">
+					Join an existing shopping list
+				</p>
+				<label htmlFor="shared-token">Enter Token</label>
 				<input
 					type="text"
+					placeholder="Enter Token..."
 					id="shared-token"
 					value={tokenInput}
 					onChange={(e) => setTokenInput(e.target.value)}
 				/>
-				<button type="submit">Join an existing list</button>
+				<button type="submit" className="btn-joinanexistinglist">
+					Join List
+				</button>
 			</form>
 			{errorMessage && errorMessage}
+
+			<div className="createanewlist">
+				<p>Get started by creating a new list</p>
+				<button onClick={handleCreateList} className="btn-createanewlist">
+					Create a new list
+				</button>
+			</div>
 		</div>
 	);
 }
