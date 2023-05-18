@@ -1,4 +1,6 @@
 :root {
+	/*from this line to line 10 (end of body tag) not needed, it has
+    already been specified in the index.css file*/
 	--gray-white: #ebebd3;
 	--grey: #323031;
 	--yellow: #ffc857;
@@ -10,56 +12,59 @@ body {
 
 .Home {
 	align-items: center;
+	/*specify a display: flex; with flex-direction:column;
+    so we can center elements in the page with justify-content: center*/
 }
 
 .createanewlist {
 	margin-top: 80px;
 	margin-bottom: 50px;
 }
-
+/* for the buttons no specify the height as 48px as use display flex to center the text inside, so no need to specify padding */
 .btn-createanewlist {
-	color: var(--grey);
-	background-color: var(--yellow);
+	color: var(--grey); /*use var(--color-gray-dark) instead*/
+	background-color: var(--yellow); /*use var(--color-sunglow) instead*/
 	font-size: 15px;
 	margin-left: 50px;
 	padding: 10px 20px;
 	border-radius: 10px;
 	border: none;
-	transition: var(--yellow) 0.3s ease-in-out;
+	transition: var(--yellow) 0.3s ease-in-out; /*use var(--color-sunglow) instead*/
 }
 
 .btn-createanewlist:hover {
-	border-color: var(--yellow);
+	border-color: var(--yellow); /*use var(--color-sunglow) instead*/
 	background-color: transparent;
 	outline: none;
 }
 
 .btn-joinanexistinglist {
-	color: var(--grey);
-	background-color: var(--yellow);
+	color: var(--grey); /*use var(--color-gray-dark) instead*/
+	background-color: var(--yellow); /*use var(--color-sunglow) instead*/
 	font-size: 15px;
 	border: none;
 	padding: 8px 15px;
 }
 
 .btn-joinanexistinglist:hover {
-	border-color: var(--yellow);
+	border-color: var(--yellow); /*use var(--color-sunglow) instead*/
 	background-color: transparent;
 	outline: none;
 }
 
 input[type='text'] {
-	height: 35px;
-	border: 1px solid var(--gray-white);
+	height: 35px; /*should be 48px */
+	border: 1px solid var(--gray-white); /*use var(--color-gray) instead*/
 	border-radius: 3px;
 	outline: none;
 }
 
 .text-joinanexistingshoppinglist {
 	margin-top: 50px;
-	margin-left: 30px;
+	margin-left: 30px; /*instead of margin-left use text-align: center*/
 }
-
+/* line 68 t0 83 not needed just style the 
+first-text with text-align:center */
 .first-text {
 	margin-top: 0;
 	text-indent: 2em;
@@ -76,7 +81,8 @@ input[type='text'] {
 	text-indent: 2em;
 	text-align: center;
 }
-
+/* no need to style p tag, text color has been 
+styled in body tag in index.css */
 p {
 	color: var(--grey);
 }

@@ -1,6 +1,7 @@
 :root {
 	--color-black: hsla(0, 0%, 0%, 1);
 	--color-gray-dark: hsla(330, 2%, 19%, 1);
+	--color-gray: hsla(0, 0%, 0%, 0.44);
 	--color-white: hsla(0, 0%, 100%, 0.8);
 	--color-beige: hsla(60, 38%, 87%, 1);
 	--color-sandy-brown: hsla(28, 83%, 61%, 1);
@@ -14,6 +15,7 @@
 	--color-bg-well: var(--color-gray-dark);
 	--color-error: var(--color-sienna);
 	--color-text: var(--color-black);
+	--color-border: var(--color-gray);
 }
 
 *,
