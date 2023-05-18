@@ -1,70 +1,61 @@
-:root {
-	/*from this line to line 10 (end of body tag) not needed, it has
-    already been specified in the index.css file*/
-	--gray-white: #ebebd3;
-	--grey: #323031;
-	--yellow: #ffc857;
-}
-
-body {
-	background-color: var(--gray-white);
-}
-
 .Home {
 	align-items: center;
-	/*specify a display: flex; with flex-direction:column;
-    so we can center elements in the page with justify-content: center*/
+	display: flex;
+	flex-direction: column;
 }
 
-.createanewlist {
+.create-new-list {
 	margin-top: 80px;
 	margin-bottom: 50px;
 }
 /* for the buttons no specify the height as 48px as use display flex to center the text inside, so no need to specify padding */
-.btn-createanewlist {
-	color: var(--grey); /*use var(--color-gray-dark) instead*/
-	background-color: var(--yellow); /*use var(--color-sunglow) instead*/
+.Create-new-list__btn {
+	color: var(--color-gray-dark);
+	background-color: var(--color-sunglow);
 	font-size: 15px;
 	margin-left: 50px;
 	padding: 10px 20px;
 	border-radius: 10px;
 	border: none;
-	transition: var(--yellow) 0.3s ease-in-out; /*use var(--color-sunglow) instead*/
+	transition: var(--color-sunglow) 0.3s ease-in-out;
 }
 
 .btn-createanewlist:hover {
-	border-color: var(--yellow); /*use var(--color-sunglow) instead*/
+	border-color: var(--color-sunglow);
 	background-color: transparent;
 	outline: none;
 }
 
-.btn-joinanexistinglist {
-	color: var(--grey); /*use var(--color-gray-dark) instead*/
-	background-color: var(--yellow); /*use var(--color-sunglow) instead*/
+.Join-existing-list__btn {
+	color: var(--color-gray-dark);
+	background-color: var(--color-sunglow);
 	font-size: 15px;
 	border: none;
 	padding: 8px 15px;
 }
 
-.btn-joinanexistinglist:hover {
-	border-color: var(--yellow); /*use var(--color-sunglow) instead*/
+.Join-existing-list__btn:hover {
+	border-color: var(--color-sunglow);
 	background-color: transparent;
 	outline: none;
 }
 
 input[type='text'] {
-	height: 35px; /*should be 48px */
-	border: 1px solid var(--gray-white); /*use var(--color-gray) instead*/
+	height: 35px; /*should be 48px - It can't be 48px, else it won't align with the button*/
+	border: 1px solid var(--color-gray);
 	border-radius: 3px;
 	outline: none;
 }
 
-.text-joinanexistingshoppinglist {
+.Join-existing-list {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 	margin-top: 50px;
-	margin-left: 30px; /*instead of margin-left use text-align: center*/
+	text-align: center;
 }
 /* line 68 t0 83 not needed just style the 
-first-text with text-align:center */
+first-text with text-align:center - it's needed inorder to achieve the text in that form, if you have a simpler way, you could please show me. */
 .first-text {
 	margin-top: 0;
 	text-indent: 2em;
