@@ -1,0 +1,34 @@
+.listContent {
+	margin-top: 4rem;
+}
+
+.listContainer {
+	margin: 1rem 0.5rem;
+}
+
+.search {
+	/* position: relative; */
+	display: flex;
+	align-items: center;
+}
+.search-icon {
+	position: absolute;
+	left: 1rem;
+	top: 1.65rem;
+	z-index: 1000;
+	margin-right: 10px;
+	color: rgb(177, 177, 177);
+}
+.search input {
+	background-color: white;
+	border: none;
+	width: 100%;
+	height: 5rem;
+	border-radius: 10px;
+	padding: 0 4rem;
+}
+
+::placeholder {
+	font-size: 16px;
+	color: rgb(161, 160, 160);
+}

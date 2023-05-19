@@ -1,10 +1,65 @@
 .ListItem {
+	margin-top: 1rem;
 	align-items: baseline;
 	display: flex;
 	flex-direction: row;
 	font-size: 1.2em;
+	justify-content: space-between;
 }
-
+.ListItem div {
+	display: flex;
+	align-items: center;
+	column-gap: 4px;
+}
+.ListItem div:nth-child(2) {
+	column-gap: 7px;
+}
+.ListItem div:nth-child(2) > label {
+	/* border: 2px solid white; */
+	padding: 0px 20px;
+	border-radius: 10px;
+	font-size: 17px;
+}
+.redLabel {
+	color: rgb(215, 57, 57);
+	background-color: rgb(215, 57, 57, 0.2);
+	border: 1px solid rgb(215, 57, 57);
+}
+.blueLabel {
+	color: blue;
+	border: 1px solid blue;
+	background-color: rgb(52, 52, 210, 0.15);
+}
+.cyanLabel {
+	color: cyan;
+	border: 1px solid cyan;
+	background-color: rgb(0, 230, 230, 0.15);
+}
+.greenLabel {
+	color: rgb(144, 196, 66);
+	border: 1px solid rgb(144, 196, 66);
+	background-color: rgb(144, 196, 66, 0.15);
+}
+.grayLabel {
+	color: rgb(108, 111, 87);
+	border: 1px solid rgb(108, 111, 87);
+	background-color: rgb(108, 111, 87, 0.15);
+}
+.ListItem div:nth-child(2) > button {
+	border: none;
+	background: none;
+}
+.checkbox {
+	width: 20px;
+	height: 15px;
+}
+.delete-icon {
+	font-size: 1.5rem;
+	transition: transform 0.3s;
+}
+.delete-icon:hover {
+	transform: scale(1.5);
+}
 .ListItem-checkbox {
 	accent-color: var(--color-accent);
 }
