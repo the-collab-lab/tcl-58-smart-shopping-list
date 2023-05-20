@@ -31,9 +31,9 @@
 	background-color: rgb(52, 52, 210, 0.15);
 }
 .cyanLabel {
-	color: cyan;
-	border: 1px solid cyan;
-	background-color: rgb(0, 230, 230, 0.15);
+	color: rgba(0, 148, 198, 1);
+	border: 1px solid rgba(0, 148, 198, 1);
+	background-color: rgba(0, 148, 198, 0.2);
 }
 .greenLabel {
 	color: rgb(144, 196, 66);

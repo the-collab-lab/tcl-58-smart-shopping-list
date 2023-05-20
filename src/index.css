@@ -66,8 +66,10 @@ h1 {
 }
 input {
 	background-color: var(--color-white);
+	color: black;
 }
-.message {
+.message,
+span {
 	font-size: 15px;
 	color: var(--color-red);
 	text-transform: capitalize;

@@ -76,7 +76,7 @@ export function Home({ setListToken, listToken }) {
 					Join List
 				</button>
 			</form>
-			{errorMessage && <span>errorMessage</span>}
+			{errorMessage && <span>{errorMessage}</span>}
 
 			<div className="create-new-list">
 				{/**className should be Create-new-list */}

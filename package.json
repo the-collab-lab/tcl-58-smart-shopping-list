@@ -9,6 +9,7 @@
 		"@fortawesome/fontawesome-free": "^6.4.0",
 		"@the-collab-lab/shopping-list-utils": "^2.0.0",
 		"firebase": "^9.17.2",
+		"fontawesome-free": "^1.0.4",
 		"react": "^18.2.0",
 		"react-dom": "^18.2.0",
 		"react-router-dom": "^6.10.0"
