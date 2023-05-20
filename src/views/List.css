@@ -26,14 +26,12 @@
 	height: 5rem;
 	border-radius: 10px;
 	padding: 0 4rem;
-<<<<<<< HEAD
 	font-size: 18px;
+	color: black;
 }
 .search input:focus {
 	outline: none;
 	border: none;
-=======
->>>>>>> 1ef00bbd693ea9118924fcafeefd6e533cfdfc6a
 }
 
 ::placeholder {

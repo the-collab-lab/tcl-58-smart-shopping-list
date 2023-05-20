@@ -52,11 +52,10 @@
 .checkbox {
 	width: 15px;
 	height: 15px;
-	-moz-appearance: none;
-	-webkit-appearance: none;
-	-o-appearance: none;
+	background-color: white;
 }
 .delete-icon {
+	color: black;
 	font-size: 1.5rem;
 	transition: transform 0.3s;
 }

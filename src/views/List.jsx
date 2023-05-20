@@ -2,6 +2,7 @@ import { ListItem } from '../components';
 import { Link, Navigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import './List.css';
+import LoadingSpinner from '../components/LoadingSpinner';
 
 import '@fortawesome/fontawesome-free/css/all.css';
 
@@ -27,6 +28,7 @@ export function List({ data, listToken, show }) {
 
 	return (
 		<>
+			{data?.length < 1 && !show && <LoadingSpinner />}
 			{data?.length > 0 && (
 				<div>
 					<form className="listContainer">
