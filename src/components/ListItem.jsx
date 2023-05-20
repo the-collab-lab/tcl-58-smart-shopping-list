@@ -72,8 +72,6 @@ export function ListItem({ item, listToken }) {
 		grayLabel = 'grayLabel';
 	}
 
-	console.log(blueLabel, redLabel, cyanLabel, redLabel, grayLabel);
-
 	useEffect(() => {
 		if (dateLastPurchased == null) return;
 
@@ -104,7 +102,7 @@ export function ListItem({ item, listToken }) {
 
 				<div className="rightContainer">
 					<label
-						className={`${grayLabel} ${blueLabel} ${cyanLabel} ${redLabel}`}
+						className={`${grayLabel} ${blueLabel} ${cyanLabel} ${redLabel} ${greenLabel}`}
 						htmlFor={id}
 					>
 						{urgencyLabel}

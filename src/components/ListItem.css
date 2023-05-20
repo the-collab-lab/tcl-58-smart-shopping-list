@@ -50,8 +50,11 @@
 	background: none;
 }
 .checkbox {
-	width: 20px;
+	width: 15px;
 	height: 15px;
+	-moz-appearance: none;
+	-webkit-appearance: none;
+	-o-appearance: none;
 }
 .delete-icon {
 	font-size: 1.5rem;
