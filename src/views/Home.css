@@ -1,0 +1,79 @@
+.Home {
+	align-items: center;
+	display: flex;
+	flex-direction: column;
+}
+
+.create-new-list {
+	margin-top: 80px;
+	margin-bottom: 50px;
+}
+/* for the buttons no specify the height as 48px as use display flex to center the text inside, so no need to specify padding */
+.Create-new-list__btn {
+	color: var(--color-gray-dark);
+	background-color: var(--color-sunglow);
+	font-size: 15px;
+	margin-left: 50px;
+	padding: 10px 20px;
+	border-radius: 10px;
+	border: none;
+	transition: var(--color-sunglow) 0.3s ease-in-out;
+}
+
+.btn-createanewlist:hover {
+	border-color: var(--color-sunglow);
+	background-color: transparent;
+	outline: none;
+}
+
+.Join-existing-list__btn {
+	color: var(--color-gray-dark);
+	background-color: var(--color-sunglow);
+	font-size: 15px;
+	border: none;
+	padding: 8px 15px;
+}
+
+.Join-existing-list__btn:hover {
+	border-color: var(--color-sunglow);
+	background-color: transparent;
+	outline: none;
+}
+
+input[type='text'] {
+	height: 35px; /*should be 48px - It can't be 48px, else it won't align with the button*/
+	border: 1px solid var(--color-gray);
+	border-radius: 3px;
+	outline: none;
+}
+
+.Join-existing-list {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-top: 50px;
+	text-align: center;
+}
+/* line 68 t0 83 not needed just style the 
+first-text with text-align:center - it's needed inorder to achieve the text in that form, if you have a simpler way, you could please show me. */
+.first-text {
+	margin-top: 0;
+	text-indent: 2em;
+	text-align: center;
+}
+
+.second-text {
+	margin-top: -1em;
+	text-indent: 2em;
+}
+
+.third-text {
+	margin-top: -1em;
+	text-indent: 2em;
+	text-align: center;
+}
+/* no need to style p tag, text color has been 
+styled in body tag in index.css */
+p {
+	color: var(--grey);
+}

@@ -6,6 +6,7 @@ import { useStateWithStorage } from './utils';
 
 export function App() {
 	const [data, setData] = useState([]);
+	const [show, setShow] = useState(false);
 	/**
 	 * Here, we're using a custom hook to create `listToken` and a function
 	 * that can be used to update `listToken` later.
@@ -41,6 +42,7 @@ export function App() {
 			const sortedData = comparePurchaseUrgency(nextData);
 			/** Finally, we update our React state. */
 			setData(sortedData);
+			setShow(true);
 		});
 	}, [listToken]);
 
@@ -54,7 +56,7 @@ export function App() {
 					/>
 					<Route
 						path="/list"
-						element={<List data={data} listToken={listToken} />}
+						element={<List data={data} listToken={listToken} show={show} />}
 					/>
 					<Route
 						path="/add-item"

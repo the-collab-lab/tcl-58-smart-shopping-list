@@ -55,6 +55,22 @@ export function ListItem({ item, listToken }) {
 			}
 		}
 	};
+	let blueLabel;
+	let cyanLabel;
+	let greenLabel;
+	let redLabel;
+	let grayLabel;
+	if (urgencyLabel == 'soon') {
+		blueLabel = 'blueLabel';
+	} else if (urgencyLabel == 'kind of soon') {
+		cyanLabel = 'cyanLabel';
+	} else if (urgencyLabel == 'not soon') {
+		greenLabel = 'greenLabel';
+	} else if (urgencyLabel == 'overdue') {
+		redLabel = 'redLabel';
+	} else {
+		grayLabel = 'grayLabel';
+	}
 
 	useEffect(() => {
 		if (dateLastPurchased == null) return;
@@ -70,15 +86,31 @@ export function ListItem({ item, listToken }) {
 	return (
 		<>
 			<li className="ListItem">
-				<input
-					type="checkbox"
-					id={id}
-					onChange={handleChange}
-					checked={isChecked}
-					disabled={isChecked}
-				></input>
-				<label htmlFor={id}>{urgencyLabel} - {name}</label>
-				<button onClick={handleDeleteItem}>Delete</button>
+				<div>
+					<input
+						className="checkbox"
+						type="checkbox"
+						id={id}
+						onChange={handleChange}
+						checked={isChecked}
+						disabled={isChecked}
+					></input>
+					<label className="shoppingItem" htmlFor={id}>
+						{name}
+					</label>
+				</div>
+
+				<div className="rightContainer">
+					<label
+						className={`${grayLabel} ${blueLabel} ${cyanLabel} ${redLabel} ${greenLabel}`}
+						htmlFor={id}
+					>
+						{urgencyLabel}
+					</label>
+					<button onClick={handleDeleteItem}>
+						<i className="fas fa-trash-alt delete-icon"></i>
+					</button>
+				</div>
 			</li>
 			{message && <span>{message}</span>}
 		</>
