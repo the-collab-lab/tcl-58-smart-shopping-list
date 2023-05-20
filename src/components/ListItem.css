@@ -36,13 +36,13 @@
 	background-color: rgba(0, 148, 198, 0.2);
 }
 .greenLabel {
-	color: rgb(144, 196, 66);
-	border: 1px solid rgb(144, 196, 66);
-	background-color: rgb(144, 196, 66, 0.15);
+	color: rgba(77, 139, 49, 1);
+	border: 1px solid rgba(77, 139, 49, 1);
+	background-color: rgba(77, 139, 49, 0.2);
 }
 .grayLabel {
-	color: rgb(108, 111, 87);
-	border: 1px solid rgb(108, 111, 87);
+	color: rgba(84, 86, 67, 1);
+	border: 1px solid rgba(84, 86, 67, 1);
 	background-color: rgb(108, 111, 87, 0.15);
 }
 .ListItem div:nth-child(2) > button {
