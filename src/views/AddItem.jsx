@@ -90,52 +90,51 @@ export function AddItem({ listId, data }) {
 		<>
 			{message && <span>{message}</span>}
 			<form className="add-item-form" method="post" onSubmit={handleSubmit}>
-				<label htmlFor="item-name">Item name:</label>
+				<label htmlFor="item-name">Add new item</label>
 				<input
 					type="text"
 					name="itemName"
 					id="item-name"
 					value={itemToAdd.itemName}
 					onChange={handleChange}
+					placeholder="Add item"
 				/>
-				<fieldset>
-					<legend>How soon will you buy this again</legend>
-					<div>
-						<input
-							type="radio"
-							value={7}
-							name="buyingFrequency"
-							id="soon"
-							onChange={handleChange}
-							// defaultChecked
-							checked={itemToAdd.buyingFrequency == 7}
-						/>
-						<label htmlFor="soon">Soon</label>
-					</div>
-					<div>
-						<input
-							type="radio"
-							value={14}
-							name="buyingFrequency"
-							id="kind-of-soon"
-							onChange={handleChange}
-							checked={itemToAdd.buyingFrequency == 14}
-						/>
-						<label htmlFor="kind-of-soon">Kind Of Soon</label>
-					</div>
-					<div>
-						<input
-							type="radio"
-							value={30}
-							name="buyingFrequency"
-							id="not-soon"
-							onChange={handleChange}
-							checked={itemToAdd.buyingFrequency == 30}
-						/>
-						<label htmlFor="not-soon">Not Soon</label>
-					</div>
-				</fieldset>
-				<button>Add Item</button>
+				<legend>How soon will you buy this again</legend>
+				<div className="soon-label">
+					<input
+						type="radio"
+						value={7}
+						name="buyingFrequency"
+						id="soon"
+						onChange={handleChange}
+						// defaultChecked
+						checked={itemToAdd.buyingFrequency == 7}
+					/>
+					<label htmlFor="soon">Soon</label>
+				</div>
+				<div className="kind-of-soon-label">
+					<input
+						type="radio"
+						value={14}
+						name="buyingFrequency"
+						id="kind-of-soon"
+						onChange={handleChange}
+						checked={itemToAdd.buyingFrequency == 14}
+					/>
+					<label htmlFor="kind-of-soon">Kind Of Soon</label>
+				</div>
+				<div className="not-soon-label">
+					<input
+						type="radio"
+						value={30}
+						name="buyingFrequency"
+						id="not-soon"
+						onChange={handleChange}
+						checked={itemToAdd.buyingFrequency == 30}
+					/>
+					<label htmlFor="not-soon">Not Soon</label>
+				</div>
+				<button className="Add-item">Add Item</button>
 			</form>
 		</>
 	);
