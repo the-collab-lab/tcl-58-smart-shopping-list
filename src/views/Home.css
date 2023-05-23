@@ -8,7 +8,7 @@
 	margin-top: 80px;
 	margin-bottom: 50px;
 }
-/* for the buttons no specify the height as 48px as use display flex to center the text inside, so no need to specify padding */
+
 .Create-new-list__btn {
 	color: var(--color-gray-dark);
 	background-color: var(--color-sunglow);
@@ -41,7 +41,7 @@
 }
 
 input[type='text'] {
-	height: 35px; /*should be 48px - It can't be 48px, else it won't align with the button*/
+	height: 35px;
 	border: 1px solid var(--color-gray);
 	border-radius: 3px;
 	outline: none;
@@ -54,8 +54,7 @@ input[type='text'] {
 	margin-top: 50px;
 	text-align: center;
 }
-/* line 68 t0 83 not needed just style the 
-first-text with text-align:center - it's needed inorder to achieve the text in that form, if you have a simpler way, you could please show me. */
+
 .first-text {
 	margin-top: 0;
 	text-indent: 2em;
@@ -72,8 +71,7 @@ first-text with text-align:center - it's needed inorder to achieve the text in t
 	text-indent: 2em;
 	text-align: center;
 }
-/* no need to style p tag, text color has been 
-styled in body tag in index.css */
+
 p {
 	color: var(--grey);
 }

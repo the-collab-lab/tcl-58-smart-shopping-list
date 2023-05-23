@@ -1,8 +1,3 @@
-span {
-	display: inline-block;
-	text-transform: uppercase;
-	color: greenyellow;
-}
 .add-item-form {
 	display: flex;
 	flex-direction: column;
@@ -10,18 +5,21 @@ span {
 }
 
 .Add-item {
-	background-color: var(--color-white);
+	background-color: transparent;
 	color: var(--color-red);
 	border: 2px solid var(--color-red);
 	padding: 8px 12px;
 	border-radius: 5px;
 	height: 50px;
 	width: 200px;
+	margin-inline: auto;
+	margin-top: 10px;
 }
 
-input[type='text'] {
+.add-item-form input[type='text'] {
 	outline: none;
 	width: 100%;
+	height: 48px;
 	padding: 12px 20px;
 	margin: 8px 0;
 	border-radius: 20px;
@@ -33,6 +31,7 @@ input[type='text'] {
 	border: 2px solid var(--color-yale-blue);
 	background-color: var(--color-yale-blue);
 	border-radius: 10px;
+	height: 48px;
 	padding: 8px 12px;
 }
 
@@ -40,6 +39,7 @@ input[type='text'] {
 	border: 2px solid var(--color-sandy-brown);
 	background-color: var(--color-sandy-brown);
 	border-radius: 10px;
+	height: 48px;
 	padding: 8px 12px;
 }
 
@@ -47,5 +47,6 @@ input[type='text'] {
 	border: var(--color-red);
 	background-color: var(--color-red);
 	border-radius: 10px;
+	height: 48px;
 	padding: 8px 12px;
 }

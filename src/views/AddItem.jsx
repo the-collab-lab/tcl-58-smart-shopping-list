@@ -88,17 +88,19 @@ export function AddItem({ listId, data }) {
 
 	return (
 		<>
-			{message && <span>{message}</span>}
 			<form className="add-item-form" method="post" onSubmit={handleSubmit}>
-				<label htmlFor="item-name">Add new item</label>
-				<input
-					type="text"
-					name="itemName"
-					id="item-name"
-					value={itemToAdd.itemName}
-					onChange={handleChange}
-					placeholder="Add item"
-				/>
+				<div>
+					<label htmlFor="item-name">Add new item</label>
+					<input
+						type="text"
+						name="itemName"
+						id="item-name"
+						value={itemToAdd.itemName}
+						onChange={handleChange}
+						placeholder="Add item"
+					/>
+					{message && <span>{message}</span>}
+				</div>
 				<legend>How soon will you buy this again</legend>
 				<div className="soon-label">
 					<input
@@ -107,7 +109,6 @@ export function AddItem({ listId, data }) {
 						name="buyingFrequency"
 						id="soon"
 						onChange={handleChange}
-						// defaultChecked
 						checked={itemToAdd.buyingFrequency == 7}
 					/>
 					<label htmlFor="soon">Soon</label>
