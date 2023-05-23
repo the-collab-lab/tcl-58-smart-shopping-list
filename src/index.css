@@ -9,6 +9,7 @@
 	--color-yale-blue: hsla(211, 87%, 25%, 1);
 	--color-sienna: hsla(11, 79%, 32%, 1);
 	--color-red: hsl(0, 68%, 42%);
+	--color-tomato: hsla(10, 94%, 60%, 1);
 
 	--color-accent: var(--color-yale-blue);
 	--color-bg: var(--color-beige);

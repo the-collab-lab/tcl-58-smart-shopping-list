@@ -38,3 +38,30 @@
 	font-size: 16px;
 	color: rgb(161, 160, 160);
 }
+
+.Empty-shopping-list {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	height: 300px;
+}
+.Empty-shopping-list__add-item {
+	background-color: var(--color-sunglow);
+	border: none;
+	border-color: transparent;
+	border-radius: 10px;
+	color: var(--color-gray-dark);
+	display: grid;
+	font-size: 18px;
+	height: 48px;
+	max-width: 180px;
+	place-items: center;
+	text-decoration: none;
+	width: 100%;
+	transition: all 0.3s ease-in-out;
+}
+.Empty-shopping-list__add-item:hover {
+	background-color: transparent;
+	border: 2px solid var(--color-sunglow);
+}

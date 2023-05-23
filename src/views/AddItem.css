@@ -31,25 +31,40 @@
 	border: 2px solid var(--color-yale-blue);
 	background-color: var(--color-yale-blue);
 	border-radius: 10px;
+	display: flex;
+	align-items: center;
 	height: 48px;
-	padding: 8px 12px;
+	padding: 10px 12px;
 	color: var(--color-white);
 }
 
 .kind-of-soon-label {
-	border: 2px solid var(--color-sandy-brown);
-	background-color: var(--color-sandy-brown);
+	border: 2px solid var(--color-tomato);
+	background-color: var(--color-tomato);
 	border-radius: 10px;
+	display: flex;
+	align-items: center;
 	color: var(--color-white);
 	height: 48px;
-	padding: 8px 12px;
+	padding: 10px 12px;
 }
 
 .not-soon-label {
-	border: var(--color-red);
-	background-color: var(--color-red);
+	border: var(--color-sienna);
+	background-color: var(--color-sienna);
 	border-radius: 10px;
+	display: flex;
+	align-items: center;
 	color: var(--color-white);
 	height: 48px;
-	padding: 8px 12px;
+	padding: 10px 12px;
+}
+
+input[type='radio'] {
+	margin: 0;
+	margin-right: 8px;
+}
+
+input[type='radio'] + label {
+	line-height: 0;
 }

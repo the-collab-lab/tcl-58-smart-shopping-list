@@ -1,10 +1,11 @@
-import { ListItem } from '../components';
-import { Link, Navigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import './List.css';
-import LoadingSpinner from '../components/LoadingSpinner';
-
+import { Link, Navigate } from 'react-router-dom';
 import '@fortawesome/fontawesome-free/css/all.css';
+import { ListItem } from '../components';
+import LoadingSpinner from '../components/LoadingSpinner';
+import { ReactComponent as SadFace } from '../assets/fluent_emoji-sad-20-regular.svg';
+
+import './List.css';
 
 export function List({ data, listToken, show }) {
 	const [searchValue, setSearchValue] = useState('');
@@ -52,11 +53,12 @@ export function List({ data, listToken, show }) {
 			)}
 
 			{show && data?.length < 1 && (
-				<div>
+				<div className="Empty-shopping-list">
+					<SadFace />
 					<p>Your shopping list is currently empty!</p>
-					<button>
-						<Link to="/add-item">Add Item</Link>
-					</button>
+					<Link to="/add-item" className="Empty-shopping-list__add-item">
+						Add Item
+					</Link>
 				</div>
 			)}
 		</>
