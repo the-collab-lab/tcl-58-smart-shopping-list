@@ -50,7 +50,7 @@
 }
 
 .not-soon-label {
-	border: var(--color-sienna);
+	border: 2px solid var(--color-sienna);
 	background-color: var(--color-sienna);
 	border-radius: 10px;
 	display: flex;
@@ -66,5 +66,18 @@ input[type='radio'] {
 }
 
 input[type='radio'] + label {
-	line-height: 0;
+	width: 100%;
+}
+/* here are the active styling */
+.active-radio-btn--soon {
+	background-color: hsla(211, 87%, 25%, 0.2);
+	color: var(--color-text);
+}
+.active-radio-btn--kind-of-soon {
+	background-color: hsla(10, 94%, 60%, 0.2);
+	color: var(--color-text);
+}
+.active-radio-btn--not-soon {
+	background-color: hsla(11, 79%, 32%, 0.2);
+	color: var(--color-text);
 }
