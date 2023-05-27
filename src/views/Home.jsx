@@ -44,13 +44,13 @@ export function Home({ setListToken, listToken }) {
 
 	return (
 		<div className="Home">
-			<div className="about-text">
-				<p className="first-text">Hello ! Welcome to the Smart Shopping List</p>
-				<p className="second-text">
-					Smart shopping list, let's you add a list of items, you want to buy.
-				</p>
-				<p className="third-text">Enjoy the process.</p>
-			</div>
+			<p className="about-text">
+				Hello ! Welcome to the Smart Shopping List
+				<br />
+				Smart shopping list, let's you add a list of items, you want to buy.
+				<br />
+				Enjoy!
+			</p>
 
 			<form onSubmit={submitShareToken}>
 				<p className="Join-existing-list">Join an existing shopping list</p>
