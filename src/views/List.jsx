@@ -37,6 +37,7 @@ export function List({ data, listToken, show }) {
 							<i className="fas fa-search search-icon"></i>
 							<input
 								type="search"
+								aria-label="Search"
 								placeholder="Search item..."
 								name="search-item"
 								id="search-input"

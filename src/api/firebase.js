@@ -140,7 +140,7 @@ export function comparePurchaseUrgency(shoppingList) {
 			item.purchaseUrgency = daysUntilNextPurchase;
 			if (daysUntilNextPurchase <= 7) {
 				item.urgencyLabel = 'soon';
-			} else if (daysUntilNextPurchase > 7 && daysUntilNextPurchase < 31) {
+			} else if (daysUntilNextPurchase > 7 && daysUntilNextPurchase < 30) {
 				item.urgencyLabel = 'kind of soon';
 			} else {
 				item.urgencyLabel = 'not soon';
