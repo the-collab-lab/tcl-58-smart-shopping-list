@@ -11,6 +11,8 @@ export function AddItem({ listId, data }) {
 	});
 	const [message, setMessage] = useState('');
 
+	const [activeRadioButton, setActiveRadioButton] = useState(7);
+
 	if (!listId) {
 		return <Navigate to="/" />;
 	}
@@ -84,6 +86,7 @@ export function AddItem({ listId, data }) {
 	const handleChange = (e) => {
 		const { name, value } = e.target;
 		setItemToAdd((prevState) => ({ ...prevState, [name]: value }));
+		setActiveRadioButton(value);
 	};
 
 	return (
@@ -102,7 +105,11 @@ export function AddItem({ listId, data }) {
 					{message && <span>{message}</span>}
 				</div>
 				<legend>How soon will you buy this again</legend>
-				<div className="soon-label">
+				<div
+					className={`soon-label  ${
+						activeRadioButton == 7 ? 'active-radio-btn--soon' : ''
+					}`}
+				>
 					<input
 						type="radio"
 						value={7}
@@ -113,7 +120,11 @@ export function AddItem({ listId, data }) {
 					/>
 					<label htmlFor="soon">Soon</label>
 				</div>
-				<div className="kind-of-soon-label">
+				<div
+					className={`kind-of-soon-label  ${
+						activeRadioButton == 14 ? 'active-radio-btn--kind-of-soon' : ''
+					}`}
+				>
 					<input
 						type="radio"
 						value={14}
@@ -124,7 +135,11 @@ export function AddItem({ listId, data }) {
 					/>
 					<label htmlFor="kind-of-soon">Kind Of Soon</label>
 				</div>
-				<div className="not-soon-label">
+				<div
+					className={`not-soon-label  ${
+						activeRadioButton == 30 ? 'active-radio-btn--not-soon' : ''
+					}`}
+				>
 					<input
 						type="radio"
 						value={30}
