@@ -107,7 +107,7 @@ export function ListItem({ item, listToken }) {
 					>
 						{urgencyLabel}
 					</label>
-					<button onClick={handleDeleteItem}>
+					<button aria-label="Delete item" onClick={handleDeleteItem}>
 						<i className="fas fa-trash-alt delete-icon"></i>
 					</button>
 				</div>

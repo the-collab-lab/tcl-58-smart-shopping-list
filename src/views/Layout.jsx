@@ -39,7 +39,7 @@ export function Layout({ listToken }) {
 								onMouseEnter={() => setIsActive(index)}
 								onMouseLeave={() => setIsActive(-1)}
 							>
-								<NavLink to={route} className="Nav-link">
+								<NavLink aria-label={label} to={route} className="Nav-link">
 									{icon}
 								</NavLink>
 								{isActive === index && (

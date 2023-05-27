@@ -21,9 +21,9 @@
 	font-size: 17px;
 }
 .redLabel {
-	color: rgb(215, 57, 57);
+	color: rgba(155, 39, 39, 1);
 	background-color: rgb(215, 57, 57, 0.2);
-	border: 1px solid rgb(215, 57, 57);
+	border: 1px solid rgba(155, 39, 39, 1);
 }
 .blueLabel {
 	color: blue;
@@ -31,13 +31,13 @@
 	background-color: rgb(52, 52, 210, 0.15);
 }
 .cyanLabel {
-	color: rgba(0, 148, 198, 1);
-	border: 1px solid rgba(0, 148, 198, 1);
+	color: rgba(0, 95, 129, 1);
+	border: 1px solid rgba(0, 95, 129, 1);
 	background-color: rgba(0, 148, 198, 0.2);
 }
 .greenLabel {
-	color: rgba(77, 139, 49, 1);
-	border: 1px solid rgba(77, 139, 49, 1);
+	color: rgba(54, 100, 34, 1);
+	border: 1px solid rgba(54, 100, 34, 1);
 	background-color: rgba(77, 139, 49, 0.2);
 }
 .grayLabel {
