@@ -35,11 +35,9 @@ export function List({ data, listToken, show }) {
 					<form className="listContainer">
 						<div className="search">
 							<i className="fas fa-search search-icon"></i>
-							<label htmlFor="search-input" hidden>
-								Search Item
-							</label>
 							<input
 								type="search"
+								aria-label="Search"
 								placeholder="Search item..."
 								name="search-item"
 								id="search-input"
