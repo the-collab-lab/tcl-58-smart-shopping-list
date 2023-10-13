@@ -107,7 +107,7 @@ export function AddItem({ listId, data }) {
 				<legend>How soon will you buy this again</legend>
 				<div
 					className={`soon-label  ${
-						activeRadioButton == 7 ? 'active-radio-btn--soon' : ''
+						activeRadioButton === 7 ? 'active-radio-btn--soon' : ''
 					}`}
 				>
 					<input
@@ -116,13 +116,13 @@ export function AddItem({ listId, data }) {
 						name="buyingFrequency"
 						id="soon"
 						onChange={handleChange}
-						checked={itemToAdd.buyingFrequency == 7}
+						checked={itemToAdd.buyingFrequency === 7}
 					/>
 					<label htmlFor="soon">Soon</label>
 				</div>
 				<div
 					className={`kind-of-soon-label  ${
-						activeRadioButton == 14 ? 'active-radio-btn--kind-of-soon' : ''
+						activeRadioButton === 14 ? 'active-radio-btn--kind-of-soon' : ''
 					}`}
 				>
 					<input
@@ -131,13 +131,13 @@ export function AddItem({ listId, data }) {
 						name="buyingFrequency"
 						id="kind-of-soon"
 						onChange={handleChange}
-						checked={itemToAdd.buyingFrequency == 14}
+						checked={itemToAdd.buyingFrequency === 14}
 					/>
 					<label htmlFor="kind-of-soon">Kind Of Soon</label>
 				</div>
 				<div
 					className={`not-soon-label  ${
-						activeRadioButton == 30 ? 'active-radio-btn--not-soon' : ''
+						activeRadioButton === 30 ? 'active-radio-btn--not-soon' : ''
 					}`}
 				>
 					<input
@@ -146,7 +146,7 @@ export function AddItem({ listId, data }) {
 						name="buyingFrequency"
 						id="not-soon"
 						onChange={handleChange}
-						checked={itemToAdd.buyingFrequency == 30}
+						checked={itemToAdd.buyingFrequency === 30}
 					/>
 					<label htmlFor="not-soon">Not Soon</label>
 				</div>

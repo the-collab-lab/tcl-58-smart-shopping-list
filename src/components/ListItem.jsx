@@ -60,13 +60,13 @@ export function ListItem({ item, listToken }) {
 	let greenLabel;
 	let redLabel;
 	let grayLabel;
-	if (urgencyLabel == 'soon') {
+	if (urgencyLabel === 'soon') {
 		blueLabel = 'blueLabel';
-	} else if (urgencyLabel == 'kind of soon') {
+	} else if (urgencyLabel === 'kind of soon') {
 		cyanLabel = 'cyanLabel';
-	} else if (urgencyLabel == 'not soon') {
+	} else if (urgencyLabel === 'not soon') {
 		greenLabel = 'greenLabel';
-	} else if (urgencyLabel == 'overdue') {
+	} else if (urgencyLabel === 'overdue') {
 		redLabel = 'redLabel';
 	} else {
 		grayLabel = 'grayLabel';
