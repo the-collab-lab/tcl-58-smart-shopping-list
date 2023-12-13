@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { AddItem, Home, Layout, List } from './views';
 import { getItemData, streamListItems, comparePurchaseUrgency } from './api';
 import { useStateWithStorage } from './utils';
+import { ArchivalNoticeModal } from '@the-collab-lab/shopping-list-utils';
 
 export function App() {
 	const [data, setData] = useState([]);
@@ -49,7 +50,15 @@ export function App() {
 	return (
 		<Router>
 			<Routes>
-				<Route path="/" element={<Layout listToken={listToken} />}>
+				<Route
+					path="/"
+					element={
+						<>
+							<ArchivalNoticeModal />
+							<Layout listToken={listToken} />
+						</>
+					}
+				>
 					<Route
 						index
 						element={<Home setListToken={setListToken} listToken={listToken} />}
